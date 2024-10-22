@@ -1,10 +1,10 @@
 use cosmwasm_schema::write_api;
-use hello_contract::msg::{ExecuteMsg, InstantiateMsg, QueryMsg};
+use empty_contract::msg::{ExecuteMsg, InstantiateMsg, QueryMsg};
 
 fn main() {
     write_api! {
         instantiate: InstantiateMsg,
+        query: QueryMsg,
         execute: ExecuteMsg,
-        query: QueryMsg
     }
 }

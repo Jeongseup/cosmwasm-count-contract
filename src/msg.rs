@@ -15,11 +15,13 @@ pub struct InstantiateMsg {
 pub struct HelloResp {
     pub message: String,
 }
+
 #[derive(Serialize, Deserialize, PartialEq, Debug, Clone, JsonSchema)]
 #[serde(rename_all = "snake_case")]
 pub struct ValueResp {
     pub value: u64,
 }
+
 #[derive(Serialize, Deserialize, PartialEq, Debug, Clone, JsonSchema, QueryResponses)]
 #[serde(rename_all = "snake_case")]
 pub enum QueryMsg {
@@ -29,9 +31,11 @@ pub enum QueryMsg {
     Value {},
 }
 
-// execute
 #[derive(Serialize, Deserialize, PartialEq, Debug, Clone, JsonSchema)]
 #[serde(rename_all = "snake_case")]
 pub enum ExecuteMsg {
     Increase {},
+    // {
+    //     "increase": {}
+    //   }
 }

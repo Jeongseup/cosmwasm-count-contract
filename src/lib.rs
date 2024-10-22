@@ -24,3 +24,21 @@ pub fn query(deps: Deps, env: Env, msg: msg::QueryMsg) -> StdResult<Binary> {
 pub fn execute(deps: DepsMut, env: Env, info: MessageInfo, msg: ExecuteMsg) -> StdResult<Response> {
     contract::execute(deps, env, info, msg)
 }
+
+// study-contract -> build -> contract.wasm
+// contract.wasm -> onchain store -> id : 1
+
+// contract - innit -> counter: 0
+// contract - execute ->counter ++
+// contract - query -> 1
+
+// user A: id: 1 wasm instantiate -> contract - 0x123 -> 0
+// user B: 0x123 - query -> 0
+// user B: 0x123 - query -> 0
+
+// user A: id: 1 wasm instantiate -> contract - 0x124 -> 0
+// user C: 0x124 - execute -> 1
+// user B: 0x124 - query -> 1
+
+// user A: id: 1 wasm instantiate -> contract - 0x125
+// user A: id: 1 wasm instantiate -> contract - 0x126
